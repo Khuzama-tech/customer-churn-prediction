@@ -15,4 +15,4 @@
  
 ### Setup 
 Open the Kaggle notebook or run locally: 
-pip install pandas numpy matplotlib seaborn #Project--1-
+pip install pandas numpy matplotlib seaborn 
