@@ -32,5 +32,6 @@
 
 ## Environment Setup
 Install the required libraries locally or run inside a Kaggle notebook:
-pip install pandas numpy matplotlib seaborn scikit-learn
+
+** pip install pandas numpy matplotlib seaborn scikit-learn **
 
