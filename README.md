@@ -1,6 +1,6 @@
 
 # Customer Churn Prediction Project
-## Week 1: Exploratory Data Analysis
+## 🚀 Week 1: Exploratory Data Analysis
 ## Dataset Overview
 **Source:** Telco Customer Churn (**Kaggle**)
 
