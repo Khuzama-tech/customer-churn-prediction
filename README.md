@@ -45,30 +45,33 @@ pip install pandas numpy matplotlib seaborn scikit-learn
 | **Feature Engineering Impact** | AUC: `0.79` \(\rightarrow\) `0.84` |
 | **Biggest Takeaway** | Strategic feature engineering and careful threshold tuning drastically improve model sensitivity on imbalanced customer churn datasets. |
 
-## 🚀 Week 3: Model Optimization and Unsupervised Learning
+# 🚀 Week 3: Model Optimization and Unsupervised Learning
 
-### Overview & Methodology
+## Overview & Methodology
 This module covers advanced machine learning techniques, hyperparameter optimization, model evaluation under cross-validation, and unsupervised learning workflows (K-Means clustering and Principal Component Analysis) applied to customer churn prediction.
 
-### Key Results & Metrics
-- **Split-to-Split Stability**: Split-to-split accuracy range across 20 random seeds: 0.792 to 0.824
+## Key Results & Metrics
+- **Split-to-Split Stability**: 
+  - Minimum Accuracy: $0.780$
+  - Maximum Accuracy: $0.828$
+  - Standard Deviation: $0.0104$
+  - Theoretical 95% Confidence Interval: \(\pm 0.021\) (Standard Error: $0.0107$)
 - **5-Fold Cross-Validation AUC:** 
-  - Logistic Regression: $0.842 \pm 0.0114$
-  - Random Forest: $0.851 \pm 0.0121$
-  - XGBoost: $0.859 \pm 0.0108$
-- **Hyperparameter Optimization (Random Forest):** 
-  - Best parameters: `{'n_estimators': 200, 'max_depth': 10, 'min_samples_split': 5}`
-  - Tuning execution time comparison: Grid Search (45s) vs. Randomized Search (12s)
+  - Logistic Regression (tuned C): \(0.8464 \pm 0.0129\)
+  - Random Forest (random search): \(0.8464 \pm 0.0114\)
+  - XGBoost (tuned): \(0.8502 \pm 0.0117\)
 - **Final Model Evaluation:** 
-  - Test AUC of final optimized model (evaluated once): **0.862**
+  - Test AUC of final optimized model (XGBoost tuned, evaluated once): **0.8483** (falling safely within the CV mean \(\pm 2\) standard deviations range of $0.8268$ to $0.8736$).
 
-### Unsupervised Learning & Dimensionality Reduction
-- **Customer Segments ($k = 3$):**
-  - *High-Risk Month-to-Month*: 48% churn rate, short tenure, fiber optic internet preference.
-  - *Loyal Long-Term*: 7% churn rate, multi-year contracts, stable payment methods.
-  - *Moderate-Risk Fiber Users*: 26% churn rate, intermediate tenure with high monthly charges.
+## Unsupervised Learning & Dimensionality Reduction
+- **Customer Segments (\(k = 4\)):**
+  - *Active High Spenders* (Cluster 1): 2,157 customers, mean tenure 18.38 months, monthly charge \(\$80.41\), 3.28 services, 43% churn rate.
+  - *Short-Tenure Low Spenders* (Cluster 3): 1,918 customers, mean tenure 8.96 months, monthly charge \(\$37.71\), 1.20 services, 32% churn rate.
+  - *Loyal Power Users* (Cluster 2): 1,938 customers, mean tenure 59.83 months, monthly charge \(\$92.09\), 5.06 services, 14% churn rate.
+  - *Stable Budget Users* (Cluster 0): 1,030 customers, mean tenure 53.61 months, monthly charge \(\$30.96\), 1.48 services, 5% churn rate.
 - **Principal Component Analysis (PCA):** 
-  - 14 of 30 components explain 90% of the cumulative variance.
+  - 15 of 30 components explain 90% of the cumulative variance.
+  - PC1 top loadings (\(\sim 0.302\)) are dominated by identical positive loadings across dummy variables indicating a lack of internet service (`InternetService_No`, `OnlineSecurity_No internet service`, `TechSupport_No internet service`), revealing strong multicollinearity.
 
-### Key Takeaway
-- **Biggest Lesson:** Proper pipeline encapsulation of preprocessing steps (such as scaling and imputation) prevents data leakage during cross-validation and guarantees robust, unbiased generalization on unseen data.
+## Key Takeaway
+- **Biggest Lesson:** Tuning and advanced modeling yield minor performance gains on tabular datasets like Telco Churn because simpler models already capture most primary linear patterns. Proper cross-validation and evaluation protocols ensure models generalize robustly without overfitting to specific random splits.
