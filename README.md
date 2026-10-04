@@ -57,11 +57,11 @@ This module covers advanced machine learning techniques, hyperparameter optimiza
   - Standard Deviation: $0.0104$
   - Theoretical 95% Confidence Interval: ($\pm 0.021$)  (Standard Error: $0.0107$)
 - **5-Fold Cross-Validation AUC:** 
-  - Logistic Regression (tuned C): \(0.8464 \pm 0.0129\)
-  - Random Forest (random search): \(0.8464 \pm 0.0114\)
-  - XGBoost (tuned): \(0.8502 \pm 0.0117\)
+  - Logistic Regression (tuned C):($0.8464 \pm 0.0129$) 
+  - Random Forest (random search):  ($0.8464 \pm 0.0114$) 
+  - XGBoost (tuned): ($0.8502 \pm 0.0117$)  
 - **Final Model Evaluation:** 
-  - Test AUC of final optimized model (XGBoost tuned, evaluated once): **0.8483** (falling safely within the CV mean \(\pm 2\) standard deviations range of $0.8268$ to $0.8736$).
+  - Test AUC of final optimized model (XGBoost tuned, evaluated once): **0.8483** (falling safely within the CV mean ($\pm 2$) standard deviations range of $0.8268$ to $0.8736$).
 
 ## Unsupervised Learning & Dimensionality Reduction
 - **Customer Segments (\(k = 4\)):**
@@ -71,7 +71,7 @@ This module covers advanced machine learning techniques, hyperparameter optimiza
   - *Stable Budget Users* (Cluster 0): 1,030 customers, mean tenure 53.61 months, monthly charge \(\$30.96\), 1.48 services, 5% churn rate.
 - **Principal Component Analysis (PCA):** 
   - 15 of 30 components explain 90% of the cumulative variance.
-  - PC1 top loadings (\(\sim 0.302\)) are dominated by identical positive loadings across dummy variables indicating a lack of internet service (`InternetService_No`, `OnlineSecurity_No internet service`, `TechSupport_No internet service`), revealing strong multicollinearity.
+  - PC1 top loadings ($\sim 0.302$) are dominated by identical positive loadings across dummy variables indicating a lack of internet service (`InternetService_No`, `OnlineSecurity_No internet service`, `TechSupport_No internet service`), revealing strong multicollinearity.
 
 ## Key Takeaway
 - **Biggest Lesson:** Tuning and advanced modeling yield minor performance gains on tabular datasets like Telco Churn because simpler models already capture most primary linear patterns. Proper cross-validation and evaluation protocols ensure models generalize robustly without overfitting to specific random splits.
