@@ -55,7 +55,7 @@ This module covers advanced machine learning techniques, hyperparameter optimiza
   - Minimum Accuracy: $0.780$
   - Maximum Accuracy: $0.828$
   - Standard Deviation: $0.0104$
-  - Theoretical 95% Confidence Interval: \(\pm 0.021\) (Standard Error: $0.0107$)
+  - Theoretical 95% Confidence Interval: ($\pm 0.021$)  (Standard Error: $0.0107$)
 - **5-Fold Cross-Validation AUC:** 
   - Logistic Regression (tuned C): \(0.8464 \pm 0.0129\)
   - Random Forest (random search): \(0.8464 \pm 0.0114\)
